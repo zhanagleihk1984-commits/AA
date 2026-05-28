@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DannyTech Solutions (HK) | Edge-Cutting IT Services & Digital Transformation</title>
+    <style>
+        /* 1. 國際化全局設定 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, 'PingFang HK', 'Microsoft JhengHei', sans-serif;
+        }
+        
+        body {
+            color: #2d3748;
+            line-height: 1.7;
+            background-color: #f7fafc;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 2. 導航欄（符合香港金融科技感的高級灰白） */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #0F52BA; /* 科技寶石藍 */
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: #1a202c;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 35px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            font-weight: 600;
+            color: #4a5568;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #0F52BA;
+        }
+
+        /* 3. Hero 科技感主視覺區 */
+        .hero {
+            height: 90vh;
+            background: radial-gradient(circle at 80% 20%, rgba(15, 82, 186, 0.15) 0%, transparent 50%),
+                        linear-gradient(135deg, #0b132b 0%, #1c2541 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 24px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #ffffff, #90cdf4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 35px;
+            max-width: 750px;
+            color: #cbd5e0;
+            font-weight: 300;
+        }
+
+        .btn {
+            padding: 14px 35px;
+            background-color: #0F52BA;
+            color: #fff;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(15, 82, 186, 0.4);
+        }
+
+        .btn:hover {
+            background-color: #0d47a1;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(15, 82, 186, 0.6);
+        }
+
+        /* 4. 通用區塊樣式 */
+        .section {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            color: #718096;
+            margin-bottom: 60px;
+            font-size: 16px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 5. 香港在地 IT 核心服務 */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 45px 30px;
+            border-radius: 8px;
+            text-align: left;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.02), 0 8px 10px -6px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            border: 1px solid #edf2f7;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05);
+            border-color: #90cdf4;
+        }
+
+        .service-icon {
+            font-size: 32px;
+            color: #0F52BA;
+            margin-bottom: 25px;
+            background: rgba(15, 82, 186, 0.06);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+            font-size: 20px;
+            color: #1a202c;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            font-size: 15px;
+        }
+
+        /* 6. 創辦人Danny團隊區塊 */
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            text-align: left;
+        }
+
+        .about-text {
+            flex: 1.2;
+        }
+
+        .about-text h3 {
+            font-size: 24px;
+            color: #1a202c;
+            margin-bottom: 5px;
+        }
+
+        .about-text .title-tag {
+            color: #0F52BA;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            color: #4a5568;
+            font-size: 16px;
+        }
+
+        .about-img-wrapper {
+            flex: 0.8;
+            position: relative;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            background-color: #cbd5e0;
+        }
+
+        /* 7. 表單樣式 */
+        .contact-form {
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: left;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.02);
+            border: 1px solid #edf2f7;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #0F52BA;
+            box-shadow: 0 0 0 3px rgba(15, 82, 186, 0.1);
+        }
+
+        /* 8. 頁腳 */
+        footer {
+            background-color: #0b132b;
+            color: #a0aec0;
+            padding: 50px 8% 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* 9. 響應式斷點（手機端優化） */
+        @media (max-width: 768px) {
+            .navbar { padding: 15px 5%; }
+            .nav-links { display: none; } 
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 16px; }
+            .about-content { flex-direction: column-reverse; gap: 40px; }
+            .section { padding: 70px 5%; }
+            .contact-form { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導航欄 -->
+    <nav class="navbar">
+        <div class="logo">DannyTech<span>Solutions</span></div>
+        <ul class="nav-links">
+            <li><a href="#">首頁</a></li>
+            <li><a href="#services">核心服務</a></li>
+            <li><a href="#about">領軍人物</a></li>
+            <li><a href="#contact">項目諮詢</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner 主視覺區 -->
+    <header class="hero">
+        <h1>Empowering HK Enterprises Through IT Excellence</h1>
+        <p>我們立足香港，為本地及跨國企業提供最值得信賴的雲端計算、系統集成及數字化轉型解決方案。</p>
+        <button class="btn" onclick="scrollToContact()">預約技術專家諮詢</button>
+    </header>
+
+    <!-- 核心服務區塊 -->
+    <section id="services" class="section">
+        <h2 class="section-title">我們的 IT 核心業務</h2>
+        <p class="section-desc">配合香港創科發展趨勢，以專業技術驅動您的商業增長</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">☁️</div>
+                <h3>雲端架構與遷移 (Cloud Solutions)</h3>
+                <p>提供 AWS、Azure 及阿里云等混合雲部署與安全遷移服務，優化企業運營成本與數據安全。</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔒</div>
+                <h3>網絡安全與合規 (Cybersecurity)</h3>
+                <p>針對香港金融、零售及物流業，提供嚴格的網絡安全審計、防禦方案及數據隱私合規諮詢。</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>企業自動化與 AI 整合</h3>
+                <p>利用人工智能與 RPA 技術優化企業工作流程，打破數據孤島，實現全自動化商務運作。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 領軍人物區塊 -->
+    <section id="about" class="section" style="background-color: #fff;">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 5px;">關於我們</h2>
+                <span class="title-tag">Professional IT Partners in Hong Kong</span>
+                <h3>Danny Zhang</h3>
+                <p style="color: #4a5568; font-weight: 600; margin-bottom: 15px;">創辦人兼首席技術執行官 (Founder & CEO)</p>
+                <p>Danny Zhang 在香港 IT 行業深耕多年，擁有豐富的跨國大型項目系統集成、企業級雲架構設計以及技術團隊管理經驗。</p>
+                <p>在 Danny 的帶領下，DannyTech Solutions 始終以香港本地企業的實際痛點為核心，拒絕生搬硬套的模板代碼，專注於提供真正高回報率（ROI）的技術解決方案，協助客戶在數字化浪潮中突圍而出。</p>
